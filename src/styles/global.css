@@ -152,6 +152,46 @@
     @apply input-hover;
   }
 
+  /************/
+  /* Dropdown */
+  /************/
+
+  /* The parent container for the whole dropdown */
+  /* Any :focus, :focus-within, :hover, aria-expanded should be applied on this element */
+  .dropdown {
+    @apply relative inline-block;
+  }
+  /* The content that will be shown/hidden */
+  .dropdown-content {
+    @apply invisible absolute z-dropdown opacity-0;
+  }
+
+  /* .dropdown-open: Modifier: Force open the dropdown. Useful for dev/debugging */
+  /* .dropdown-hover: Enables the menu to expand on hover */
+  .dropdown.dropdown-open .dropdown-content,
+  .dropdown.dropdown-hover:hover .dropdown-content,
+  .dropdown:not(.dropdown-hover):focus .dropdown-content,
+  .dropdown:not(.dropdown-hover):focus-within .dropdown-content,
+  .dropdown[aria-expanded='true'] .dropdown-content {
+    @apply visible opacity-100;
+  }
+
+  /********/
+  /* Menu */
+  /********/
+
+  /* Use https://github.com/saadeghi/daisyui/blob/master/src/components/unstyled/menu.css */
+  /* and https://daisyui.com/components/menu/ as inspiration for the architecture and styles  */
+
+  .menu {
+    /* @apply flex; */
+  }
+  .menu li {
+    /* @apply shrink-0; */
+  }
+
+  /* OLD MENU STYLES BELOW, JUST FOR REFERENCE */
+
   /********/
   /* Menu */
   /********/
@@ -162,27 +202,27 @@
   /* .menu-inline: Modifier, style any submenus to be inline */
 
   .menu {
-    @apply flex flex-col;
+    /* @apply flex flex-col; */
   }
 
   /* Modifiers */
   .menu.menu-horizontal {
-    @apply flex-row;
+    /* @apply flex-row; */
   }
 
   /* Menu items */
   .menu > li > *:not(ul),
   .menu > li > ul > li > *:not(ul) {
-    @apply btn btn-inline text-left;
+    /* @apply btn btn-inline text-left; */
   }
 
   .menu.menu-horizontal > li > *:not(ul) {
-    @apply text-center;
+    /* @apply text-center; */
   }
 
   /* Submenu */
   .menu > li > ul {
-    @apply hidden absolute bg-base-200 rounded-b rounded-tr z-dropdown;
+    /* @apply hidden absolute bg-base-200 rounded-b rounded-tr z-dropdown; */
   }
 
   /* Focused items */
@@ -190,13 +230,13 @@
   .menu > li:focus,
   .menu > li:focus-within,
   .menu.menu-open > li:has(ul) {
-    @apply bg-base-200 rounded;
+    /* @apply bg-base-200 rounded; */
   }
 
   /* Focused inline submenu */
   .menu.menu-inline > li:focus,
   .menu.menu-inline > li:focus-within {
-    @apply rounded-b;
+    /* @apply rounded-b; */
   }
 
   .menu > li:focus:has(> ul),
@@ -204,7 +244,7 @@
   .menu.menu-hover > li:hover:has(> ul),
   .menu > li:focus:has(> ul) > *:not(ul),
   .menu > li:focus-within:has(> ul) > *:not(ul) {
-    @apply rounded-b-none;
+    /* @apply rounded-b-none; */
   }
 
   /* States */
@@ -212,12 +252,12 @@
   .menu > li:focus > ul,
   .menu > li:focus-within > ul,
   .menu.menu-open > li > ul {
-    @apply block;
+    /* @apply block; */
   }
   .menu.menu-inline > li:focus > ul,
   .menu.menu-inline > li:focus-within > ul,
   .menu.menu-open.menu-inline > li > ul {
-    @apply static;
+    /* @apply static; */
   }
 
   /********/
@@ -347,40 +387,5 @@
 
   .light-mode-only {
     @apply hidden;
-  }
-
-  /************/
-  /* Dropdown */
-  /************/
-
-  /* The parent container for the whole dropdown */
-  /* Any :focus, :focus-within, :hover, aria-expanded should be applied on this element */
-  .dropdown {
-    @apply relative inline-block;
-  }
-  /* The content that will be shown/hidden */
-  .dropdown-content {
-    @apply invisible absolute z-50 opacity-0;
-  }
-
-  /* .dropdown-open: Modifier: Force open the dropdown. Useful for dev/debugging */
-  /* .dropdown-hover: Enables the menu to expand on hover */
-  .dropdown.dropdown-open .dropdown-content,
-  .dropdown.dropdown-hover:hover .dropdown-content,
-  .dropdown:not(.dropdown-hover):focus .dropdown-content,
-  .dropdown:not(.dropdown-hover):focus-within .dropdown-content,
-  .dropdown[aria-expanded='true'] .dropdown-content {
-    @apply visible opacity-100;
-  }
-
-  /********/
-  /* Menu */
-  /********/
-
-  .menu {
-    @apply flex;
-  }
-  .menu li {
-    @apply shrink-0;
   }
 }

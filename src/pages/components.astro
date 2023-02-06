@@ -4,28 +4,32 @@ import Icon from '~icons/bi/fire'
 import { Code } from 'astro/components'
 import Callout from '@src/components/Callout.astro'
 import Carousel from '@src/components/Blog/Carousel.astro'
+import Dropdown from '@src/components/Dropdown.astro'
 ---
 
 <Layout title="Components">
   <div class="container mx-auto">
     <h1>Components</h1>
     <div class="flex flex-col gap-4">
+      <h2 class="h2">Dropdown (Classes only)</h2>
+      <div class="dropdown">
+        <label tabindex="0" class="btn">Dropdown Toggle</label>
+        <div class="dropdown-content">
+          I'm the content that gets rendered in the dropdown
+        </div>
+      </div>
+      <h2 class="h2">Dropdown (Component)</h2>
+      <Dropdown>
+        <label tabindex="0">Item 1</label>
+        <ul class="menu" slot="dropdown-content">
+          <li><a>Submenu 1</a></li>
+          <li><a>Submenu 2</a></li>
+          <li><a>Longer menu item</a></li>
+        </ul>
+      </Dropdown>
+
       <h2 class="h2">Blog Carousel</h2>
       <Carousel />
-      <h2>Menu</h2>
-      <ul class="menu menu-inline menu-open">
-        <li>
-          <label tabindex="0">Item 1</label>
-          <ul>
-            <!-- TODO: The btn-selected class isn't working here -->
-            <li class="btn-selected"><span>Submenu 1</span></li>
-            <li><span>Submenu 2</span></li>
-            <li><span>Longer menu item</span></li>
-          </ul>
-        </li>
-        <li><div>Item 2</div></li>
-        <li><div>Item 3</div></li>
-      </ul>
       <h2>Callouts</h2>
       <div>
         <Callout kind="note">
