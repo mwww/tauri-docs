@@ -348,4 +348,39 @@
   .light-mode-only {
     @apply hidden;
   }
+
+  /************/
+  /* Dropdown */
+  /************/
+
+  /* The parent container for the whole dropdown */
+  /* Any :focus, :focus-within, :hover, aria-expanded should be applied on this element */
+  .dropdown {
+    @apply relative inline-block;
+  }
+  /* The content that will be shown/hidden */
+  .dropdown-content {
+    @apply invisible absolute z-50 opacity-0;
+  }
+
+  /* .dropdown-open: Modifier: Force open the dropdown. Useful for dev/debugging */
+  /* .dropdown-hover: Enables the menu to expand on hover */
+  .dropdown.dropdown-open .dropdown-content,
+  .dropdown.dropdown-hover:hover .dropdown-content,
+  .dropdown:not(.dropdown-hover):focus .dropdown-content,
+  .dropdown:not(.dropdown-hover):focus-within .dropdown-content,
+  .dropdown[aria-expanded='true'] .dropdown-content {
+    @apply visible opacity-100;
+  }
+
+  /********/
+  /* Menu */
+  /********/
+
+  .menu {
+    @apply flex;
+  }
+  .menu li {
+    @apply shrink-0;
+  }
 }
