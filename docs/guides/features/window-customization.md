@@ -107,3 +107,15 @@ To make calls to `appWindow` work don't forget to add [window](../../api/js/wind
   ...
 }
 ```
+To remove the native window decorations add the following code in `tauri.conf.json` file:
+```json
+"tauri": {
+  ...
+  "windows": [
+      {
+        ...
+        "decorations": false
+      }
+    ]
+}
+```
